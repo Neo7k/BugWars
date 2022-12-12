@@ -17,13 +17,13 @@ BugBase* Bug::FindBugToEat() const
 		if (auto bug = dynamic_cast<Bug*>(object))
 		{
 			if (bug == this)
-				continue;
+				break;
 
 			if (bug->disabled)
 				continue;
 
 			if (bug->id > id)
-				continue; // Can't eat that
+				break; // Can't eat that
 
 			float dist = position.Distance(bug->position);
 			if (dist < min_dist)
